@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode
-public abstract class Tenant {
+public class Tenant {
     private final String name;
     private final List<Renting> allRenting;
     private final List<Personal> allPersonal;
@@ -21,7 +21,4 @@ public abstract class Tenant {
         this.allPersonal = allPersonal;
         this.allLending = allLending;
     }
-
-    abstract Money getValueOfAllRenting();
-    abstract Money getValueOfAllLending();
 }

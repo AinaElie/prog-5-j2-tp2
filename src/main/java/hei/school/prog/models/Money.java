@@ -6,9 +6,9 @@ import lombok.ToString;
 
 import static hei.school.prog.models.MoneyType.ARIARY;
 
-@Getter
 @ToString
 @EqualsAndHashCode
+@Getter
 public class Money {
     private final double amount;
     private final MoneyType type;
@@ -19,7 +19,7 @@ public class Money {
     }
 
     public Money add(Money newMoney) {
-        double newAmount = this.amount + newMoney.getAmount();
+        double newAmount = this.amount + newMoney.amount;
         return new Money(newAmount);
     }
 }
