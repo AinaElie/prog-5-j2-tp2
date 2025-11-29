@@ -18,7 +18,7 @@ public class JMoney {
     @Column(name = "money_id")
     private String id;
 
-    private String amount;
+    private double amount;
 
     @Enumerated(STRING)
     private MoneyType type;

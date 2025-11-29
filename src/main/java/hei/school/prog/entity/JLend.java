@@ -28,12 +28,4 @@ public class JLend {
     @ManyToOne
     @JoinColumn(name = "money_id")
     private JMoney money;
-
-    @ManyToOne
-    @JoinColumn(name = "personal_id")
-    private JPersonal personal;
-
-    @ManyToOne
-    @JoinColumn(name = "tenant_id")
-    private JTenant tenant;
 }

@@ -17,8 +17,4 @@ public class JPersonal {
 
     @Column(name = "personal_name")
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "tenant_id")
-    private JTenant tenant;
 }
