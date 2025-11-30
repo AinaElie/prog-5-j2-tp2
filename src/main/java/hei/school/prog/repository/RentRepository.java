@@ -37,4 +37,8 @@ public class RentRepository {
     public List<RentRest> findAllBy(String idTenant) {
         return rentRestMapper.toEntity(jrentRepository.findAllByIdTenant(idTenant));
     }
+
+    public List<RentRest> findAll() {
+        return rentRestMapper.toEntity(jrentRepository.findAll());
+    }
 }

@@ -42,4 +42,8 @@ public class PersonalRepository {
         return personalRestMapper.toEntity(jPersonalRepository.findAllByIdTenant(idTenant));
     }
 
+    public List<PersonalEmployeeRest> findAll() {
+        return personalRestMapper.toEntity(jPersonalRepository.findAll());
+    }
+
 }
