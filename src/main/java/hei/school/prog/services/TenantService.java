@@ -4,18 +4,37 @@ import hei.school.prog.controller.rest.CompanyRest;
 import hei.school.prog.models.Company;
 import hei.school.prog.repository.TenantRepository;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
 public class TenantService {
+    private static final Logger log = LoggerFactory.getLogger(TenantService.class);
     private final TenantRepository tenantRepository;
 
     public CompanyRest create(Company company) {
-        return tenantRepository.create(company);
+        CompanyRest companyRest;
+        try{
+            companyRest = tenantRepository.create(company);
+            log.info("Creation new Company");
+        } catch (Exception e){
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return companyRest;
     }
 
     public CompanyRest getById(String id) {
-        return tenantRepository.findById(id);
+        CompanyRest companyRest;
+        try{
+            companyRest = tenantRepository.findById(id);
+            log.info("Get Companies by Id");
+        } catch (Exception e){
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return companyRest;
     }
 }
