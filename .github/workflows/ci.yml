@@ -1,0 +1,38 @@
+# .github/workflows/main.yml
+
+name: Linter
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout du code
+        uses: actions/checkout@v4
+
+      - name: ☕ Configuration de Java
+        uses: actions/setup-java@v4
+        with:
+          # Définissez la version de Java utilisée par votre projet
+          java-version: '24'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: 📦 Compilation, Tests et Vérification (Linting)
+        run: |
+          echo "Exécution de la phase VERIFY de Maven..."
+          mvn -B verify
+
+      - name: 📄 Upload des Rapports (Tests & Checkstyle)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapports-build
+          path: target/
