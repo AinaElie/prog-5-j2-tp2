@@ -4,6 +4,5 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@Getter
 public record Lend(double value, LocalDateTime dateOfLend, LocalDateTime dateOfReturn, double interest) {
 }
