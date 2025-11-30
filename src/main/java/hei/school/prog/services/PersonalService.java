@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class PersonalService {
-    private static final Logger log = LoggerFactory.getLogger(PersonalService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PersonalService.class);
     private final PersonalRepository personalRepository;
 
     public PersonalRest create(Personal personal, String idTenant) {
@@ -22,9 +22,9 @@ public class PersonalService {
 
         try{
             personalRest = personalRepository.create(personal, idTenant);
-            log.info("Created new personal");
+            LOGGER.info("Created new personal");
         } catch (Exception e){
-            log.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         }
 

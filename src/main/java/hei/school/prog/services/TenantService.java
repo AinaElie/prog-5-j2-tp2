@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class TenantService {
-    private static final Logger log = LoggerFactory.getLogger(TenantService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TenantService.class);
     private final TenantRepository tenantRepository;
 
     public CompanyRest create(Company company) {
         CompanyRest companyRest;
         try{
             companyRest = tenantRepository.create(company);
-            log.info("Creation new Company");
+            LOGGER.info("Creation new Company");
         } catch (Exception e){
-            log.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         }
         return companyRest;
@@ -30,9 +30,9 @@ public class TenantService {
         CompanyRest companyRest;
         try{
             companyRest = tenantRepository.findById(id);
-            log.info("Get Companies by Id");
+            LOGGER.info("Get Companies by Id");
         } catch (Exception e){
-            log.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         }
         return companyRest;
