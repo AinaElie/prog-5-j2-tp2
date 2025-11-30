@@ -17,6 +17,9 @@ public class JLend {
     @Column(name = "lend_id")
     private String id;
 
+    @Column(name = "value")
+    private double value;
+
     @Column(name = "date_of_lend")
     private LocalDateTime dateOfLend;
 
@@ -25,7 +28,6 @@ public class JLend {
 
     private double interest;
 
-    @ManyToOne
-    @JoinColumn(name = "money_id")
-    private JMoney money;
+    @Column(name = "tenant_id", nullable = false, unique = true)
+    private String idTenant;
 }

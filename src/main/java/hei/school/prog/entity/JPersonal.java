@@ -17,4 +17,7 @@ public class JPersonal {
 
     @Column(name = "personal_name")
     private String name;
+
+    @Column(name = "tenant_id", nullable = false, unique = true)
+    private String idTenant;
 }

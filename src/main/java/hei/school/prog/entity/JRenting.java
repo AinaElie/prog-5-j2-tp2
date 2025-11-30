@@ -32,11 +32,6 @@ public class JRenting {
     @Column(name = "rent_end")
     private LocalDateTime rentEnd;
 
-    @ManyToOne
-    @JoinColumn(name = "personal_id")
-    private JPersonal personal;
-
-    @ManyToOne
-    @JoinColumn(name = "tenant_id")
-    private JTenant tenant;
+    @Column(name = "tenant_id", nullable = false, unique = true)
+    private String idTenant;
 }
