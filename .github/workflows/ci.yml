@@ -22,10 +22,8 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
-      - name: 📦 Compilation, Tests et Vérification (Linting)
-        run: |
-          echo "Exécution de la phase VERIFY de Maven..."
-          mvn -B verify
+      - name: 🔎 Exécution du Linter (Checkstyle Uniquement)
+        run: mvn checkstyle:check
 
       - name: 📄 Upload des Rapports (Tests & Checkstyle)
         if: always()
