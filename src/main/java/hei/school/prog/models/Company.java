@@ -9,8 +9,11 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper=true)
-public class Personal extends Tenant {
-    public Personal(String name, List<Renting> allRenting, List<Lend> allLending) {
+public class Company extends Tenant {
+    private final List<Personal> allPersonal;
+
+    public Company(String name, List<Renting> allRenting, List<Lend> allLending, List<Personal> allPersonal) {
         super(name, allRenting, allLending);
+        this.allPersonal = allPersonal;
     }
 }
