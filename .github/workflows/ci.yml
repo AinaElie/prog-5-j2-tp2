@@ -20,8 +20,7 @@ jobs:
       - name: ☕ Configuration de Java
         uses: actions/setup-java@v4
         with:
-          # Définissez la version de Java utilisée par votre projet
-          java-version: '24'
+          java-version: '25'
           distribution: 'temurin'
           cache: 'maven'
 
